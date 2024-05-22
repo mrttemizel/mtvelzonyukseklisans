@@ -10,10 +10,10 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     public  function index(){
-
         $bolumler = Bolumler::all();
 
         $data = Setting::find(1);
+
 
         if ($data->status == '')
         {
@@ -29,7 +29,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
+        /*$request->validate([
 
             'bolum_id' => 'required',
             'KVKK' => 'required',
@@ -61,7 +61,7 @@ class StudentController extends Controller
 
 
 
-        ]);
+        ]);*/
 
 
         dd($request->all());

@@ -16,8 +16,8 @@
                     <div class="btn-group">
                         <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">TR</a>
-                            <a class="dropdown-item" href="#">EN</a>
+                            <a class="dropdown-item" href="{{ route('student.index', ['locale' => 'tr']) }}">TR</a>
+                            <a class="dropdown-item" href="{{ route('student.index', ['locale' => 'en']) }}">EN</a>
                         </div>
                     </div>
                 </div>
@@ -36,8 +36,9 @@
                             </span>
                                         <select class="form-select mb-3" aria-label="Default select example" name="bolum_id">
                                             <option selected disabled>Bölüm Seçiniz</option>
+
                                             @foreach( $bolumler as $item)
-                                            <option value="{{$item -> id}}" @selected(old('bolum_id') == $item -> id)>{{$item ->bolumler_tr}}</option>
+                                            <option value="{{$item -> id}}" @selected(old('bolum_id') == $item -> id)>{{$item ->bolumler}}</option>
                                             @endforeach
                                         </select>
 
@@ -496,15 +497,7 @@
         $(document).ready(function(){
 
 
-            $('#application_form').on('submit', function(e) {
-                e.preventDefault();
-                var form = this;
 
-                console.log(form);
-
-
-
-            });
 
             IMask(
                 document.getElementById('mezuniyet_ortalamasi'),

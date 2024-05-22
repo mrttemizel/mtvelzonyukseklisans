@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\user\UserController;
 use App\Http\Controllers\frontend\settings\SettingsController;
 use App\Http\Controllers\frontend\student\StudentController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[StudentController::class,'index'])->name('student.index');
+
+
+
+Route::get('/', function () {
+    $locale = mb_substr(request()->header('Accept-Language'), 0, 2);
+
+    if (! in_array($locale, config('app.available_locales'))) {
+        $locale = config('app.locale');
+    }
+
+    return redirect()->route('student.index', ['locale' => $locale]);
+});
+
+Route::prefix('{locale}')->group(function () {
+    Route::get('/',[StudentController::class,'index'])->name('student.index');
+});
+
+
+
 Route::post('/student/store',[StudentController::class,'store'])->name('student.store');
 
 Route::get('/login',[AuthController::class,'login'])->name('auth.login');
