@@ -1,5 +1,5 @@
 @extends('backend.components.master-withoutnavbar')
-@section('title') Yüksek Lisans Başvuru Sayfası  @endsection
+@section('title') @lang('home.header')  @endsection
 @section('content')
 
 
@@ -12,7 +12,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4 class="card-title mb-0">ENSTİTÜ BAŞVURU FORMU</h4>
+                    <h4 class="card-title mb-0">@lang('home.header')</h4>
                     <div class="btn-group">
                         <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</button>
                         <div class="dropdown-menu">
@@ -28,14 +28,14 @@
                             <div class="col-lg-12">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Bölümler</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.bolumler')</label>
                                         <span class="text-danger ">
                                     @error('bolum_id')
                                             {{ $message }}
                                             @enderror
                             </span>
                                         <select class="form-select mb-3" aria-label="Default select example" name="bolum_id">
-                                            <option selected disabled>Bölüm Seçiniz</option>
+                                            <option selected disabled>@lang('home.bolumler')</option>
 
                                             @foreach( $bolumler as $item)
                                             <option value="{{$item -> id}}" @selected(old('bolum_id') == $item -> id)>{{$item ->bolumler}}</option>
@@ -47,11 +47,11 @@
                             </div>
                         </div>
                         <div class="row mt-2">
-                            <h6 style="color: #01AAC8"><b>KİŞİSEL BİLGİLER</b></h6>
+                            <h6 style="color: #01AAC8"><b>@lang('home.iletisim_bilgiler')</b></h6>
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span>  İsim Soyisim</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.isim_soyisim')</label>
                                         <span class="text-danger">
                                     @error('name')
                                             {{ $message }}
@@ -65,7 +65,7 @@
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> TC</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.tc')</label>
                                         <span class="text-danger">
                                     @error('country_number')
                                             {{ $message }}
@@ -81,7 +81,7 @@
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Ülke</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.ulke')</label>
                                         <span class="text-danger">
                                     @error('country')
                                             {{ $message }}
@@ -95,7 +95,7 @@
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Doğum Yeri</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.dogum_yeri')</label>
                                         <span class="text-danger">
                                     @error('place_of_birth')
                                             {{ $message }}
@@ -112,7 +112,7 @@
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Doğum Tarihi</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.dogum_tarihi')</label>
                                         <span class="text-danger">
                                     @error('date_of_birth')
                                             {{ $message }}
@@ -125,7 +125,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div>
-                                    <label for="labelInput" class="form-label"><span class="text-danger">*</span> Cinsiyet</label>
+                                    <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.cinsiyet')</label>
                                     <span class="text-danger">
                                     @error('gender')
                                         {{ $message }}
@@ -134,12 +134,12 @@
                                     <div class="form-check mb-2">
                                         <input class="form-check-input" type="radio" name="gender"  value="male" {{ old('gender')=="male" ? 'checked='.'"'.'checked'.'"' : '' }}>
                                         <label class="form-check-label">
-                                            Erkek
+                                            @lang('home.erkek')
                                         </label>
                                         <br>
                                         <input class="form-check-input" type="radio" name="gender" value="woman" {{ old('gender')=="woman" ? 'checked='.'"'.'checked'.'"' : '' }}>
                                         <label class="form-check-label">
-                                            Kız
+                                            @lang('home.kiz')
                                         </label>
                                     </div>
 
@@ -151,17 +151,17 @@
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Askerlik Durumu</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.askerlik_durumu')</label>
                                         <span class="text-danger" id="is_military_services">
                                     @error('military_service')
                                             {{ $message }}
                                             @enderror
                             </span>
                                         <select class="form-select mb-3" aria-label="Default select example" name="military_service">
-                                            <option selected disabled>Seçiniz</option>
-                                            <option value="1">Yapıldı</option>
-                                            <option value="2">Muaf</option>
-                                            <option value="3">Yapılmadı</option>
+                                            <option selected disabled>@lang('home.seciniz')</option>
+                                            <option value="1">@lang('home.yapildi')</option>
+                                            <option value="2">@lang('home.yapilmadi')</option>
+                                            <option value="3">@lang('home.muaf')</option>
                                         </select>
 
                                     </div>
@@ -170,13 +170,13 @@
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Askerlik Durum Belgesi</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.askerlik_belgesi')</label>
                                         @error('military_service_certificate')
                                         {{ $message }}
                                         @enderror
                                         </span>
                                         <input type="file" class="form-control" id="labelInput" name="military_service_certificate">
-                                        <span class="text-info">Lütfen belgelerinizi <b>" docx,pdf,jpg,png,doc "</b> formatında yükleyiniz. Hata almanız durumunda belgeleri tekrar yüklemelisiniz.</span><br>
+                                        <span class="text-info">@lang('home.aciklama')</span><br>
                                         <span class="text-danger">
 
                                     </div>
@@ -187,14 +187,14 @@
                             <div class="col-lg-12">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Kimlik Belgesi</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.kimlik_belgesi')</label>
                                         <span class="text-danger">
                                     @error('identity')
                                             {{ $message }}
                                             @enderror
                             </span>
                                         <input type="file" class="form-control" id="labelInput" name="identity" value="{{ old('identity') }}" >
-                                        <span class="text-info">Lütfen belgelerinizi <b>" docx,pdf,jpg,png,doc "</b> formatında yükleyiniz. Hata almanız durumunda belgeleri tekrar yüklemelisiniz.</span><br>
+                                        <span class="text-info">@lang('home.aciklama')</span><br>
 
                                     </div>
                                 </div>

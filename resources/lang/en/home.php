@@ -1,0 +1,23 @@
+<?php
+return [
+    'header' => 'INSTITUTE APPLICATION FORM',
+    'kisisel_bilgiler' => 'PERSONAL INFORMATION',
+    'iletisim_bilgiler' => 'CONTACT INFORMATION',
+    'bolumler' => 'Departments',
+    'isim_soyisim' => 'Name Surname',
+    'tc' => 'Identification number',
+    'ulke' => 'Country',
+    'dogum_yeri' => 'Place of birth',
+    'dogum_tarihi' => 'Date of birth',
+    'cinsiyet' => 'Gender',
+    'erkek' => 'Male',
+    'kiz' => 'Girl',
+    'askerlik_durumu' => 'Military Service Status',
+    'yapildi' => 'Done',
+    'muaf' => 'Exempt',
+    'yapilmadi' => 'Not Done',
+    'askerlik_belgesi' => 'Military Status Certificate',
+    'kimlik_belgesi' => 'Identification',
+    'seciniz' => 'Choose',
+    'aciklama' => 'Please upload your documents in "docx, pdf, jpg, png, doc" format. If you receive an error, you must upload the documents again.',
+];
