@@ -30,8 +30,8 @@ class BolumlerSeeder extends Seeder
 
             ],
             [   'id' => 4,
-                'bolumler_tr' => 'Business Administration (Ph.D.)',
-                'bolumler_en' => '',
+                'bolumler_tr' => 'İşletme (Doktora)',
+                'bolumler_en' => 'Business Administration (Ph.D.)',
             ],
             [   'id' => 5,
                 'bolumler_tr' => 'İnsaat Mühendisligi (Tezli-İngilizce)',

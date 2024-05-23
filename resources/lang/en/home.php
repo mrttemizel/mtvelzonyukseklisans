@@ -19,7 +19,7 @@ return [
     'askerlik_belgesi' => 'Military Status Certificate',
     'kimlik_belgesi' => 'Identification',
     'seciniz' => 'Choose',
-    'aciklama' => 'Please upload your documents in "docx, pdf, jpg, png, doc" format. If you receive an error, you must upload the documents again.',
+    'aciklama' => 'Please upload your documents in "pdf" format. If you receive an error, you must upload the documents again.',
 
     'sehir' => 'City',
     'ilce' => 'Town',

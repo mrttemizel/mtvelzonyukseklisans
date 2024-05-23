@@ -37,8 +37,8 @@ return new class extends Migration
             $table->text('end_date')->nullable();
             $table->text('certificate')->nullable();
             $table->text('transcript')->nullable();
-            $table->float('ales')->nullable();
-            $table->float('yds')->nullable();
+            $table->string('ales')->nullable();
+            $table->string('yds')->nullable();
             $table->text('ales_certificate')->nullable();
             $table->text('yds_certificate')->nullable();
             $table->timestamps();

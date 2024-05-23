@@ -40,7 +40,7 @@
                     </div>
                 </li> <!-- end Dashboard Menu -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-key="t-analytics">  <i class="  ri-table-alt-line"></i>Başvurular </a>
+                    <a href="{{route('form.index')}}" class="nav-link" data-key="t-analytics">  <i class="  ri-table-alt-line"></i>Başvurular </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{route('settings.index')}}" class="nav-link" data-key="t-analytics">  <i class=" ri-settings-2-line"></i>Site Ayarları </a>

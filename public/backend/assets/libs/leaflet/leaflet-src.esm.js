@@ -8389,7 +8389,7 @@ var Circle = CircleMarker.extend({
 // @alternative
 // @factory L.circle(latlng: LatLng, radius: Number, options?: Circle options)
 // Obsolete way of instantiating a circle, for compatibility with 0.7.x code.
-// Do not use in new applications or plugins.
+// Do not use in new form or plugins.
 function circle(latlng, options, legacyOptions) {
 	return new Circle(latlng, options, legacyOptions);
 }

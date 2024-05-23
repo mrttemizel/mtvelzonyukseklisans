@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('student.store',['locale' => app()->getLocale()])}}" class="application_form" id="application_form" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('form.store',['locale' => app()->getLocale()])}}" class="application_form" id="application_form" method="POST" enctype="multipart/form-data">
                     @csrf
                         <div class="row gy-1">
                             <div class="col-lg-12">
@@ -175,7 +175,7 @@
                                         {{ $message }}
                                         @enderror
                                         </span>
-                                        <input type="file" class="form-control" id="labelInput" name="military_service_certificate" accept="application/pdf,image/jpeg,image/png">
+                                        <input type="file" class="form-control" id="labelInput" name="military_service_certificate">
                                         <span class="text-info">@lang('home.aciklama')</span><br>
                                         <span class="text-danger">
 
@@ -193,7 +193,7 @@
                                             {{ $message }}
                                             @enderror
                             </span>
-                                        <input type="file" class="form-control" id="labelInput" name="identity" value="{{ old('identity') }}" accept="application/pdf,image/jpeg,image/png">
+                                        <input type="file" class="form-control" id="labelInput" name="identity" value="{{ old('identity') }}">
                                         <span class="text-info">@lang('home.aciklama')</span><br>
 
                                     </div>
@@ -368,7 +368,7 @@
                                             {{ $message }}
                                             @enderror
                             </span>
-                                        <input type="file" class="form-control" id="labelInput" name="certificate" accept="application/pdf,image/jpeg,image/png">
+                                        <input type="file" class="form-control" id="labelInput" name="certificate">
                                         <span class="text-info">@lang('home.aciklama')</span><br>
                                     </div>
                                 </div>
@@ -382,7 +382,7 @@
                                             {{ $message }}
                                             @enderror
                             </span>
-                                        <input type="file" class="form-control" id="labelInput" name="transcript" accept="application/pdf,image/jpeg,image/png">
+                                        <input type="file" class="form-control" id="labelInput" name="transcript">
                                         <span class="text-info">@lang('home.aciklama')</span><br>
                                     </div>
                                 </div>
@@ -416,7 +416,7 @@
                                             {{ $message }}
                                             @enderror
                             </span>
-                                        <input type="file" class="form-control"  name="ales_certificate" id="labelInput"  accept="application/pdf,image/jpeg,image/png">
+                                        <input type="file" class="form-control"  name="ales_certificate" id="labelInput">
                                         <span class="text-info">@lang('home.aciklama')</span><br>
                                     </div>
                                 </div>
@@ -444,7 +444,7 @@
                                             {{ $message }}
                                             @enderror
                             </span>
-                                        <input type="file" class="form-control" name="yds_certificate" id="labelInput" accept="application/pdf,image/jpeg,image/png">
+                                        <input type="file" class="form-control" name="yds_certificate" id="labelInput" >
                                         <span class="text-info">@lang('home.aciklama')</span><br>
                                     </div>
                                 </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\auth\AuthController;
+use App\Http\Controllers\backend\form\FormController;
 use App\Http\Controllers\backend\user\UserController;
 use App\Http\Controllers\frontend\settings\SettingsController;
 use App\Http\Controllers\frontend\student\StudentController;
@@ -52,6 +53,8 @@ Route::middleware('auth')->group(function (){
         Route::get('/settings/index',[SettingsController::class,'index'])->name('settings.index');
         Route::post('/settings/update',[SettingsController::class,'update'])->name('settings.update');
 
+        Route::get('/form/index',[FormController::class,'index'])->name('form.index');
+
 
     });
 });
@@ -59,5 +62,5 @@ Route::middleware('auth')->group(function (){
 
 Route::prefix('{locale}')->middleware(['setLocale'])->group(function () {
     Route::get('/',[StudentController::class,'index'])->name('student.index');
-    Route::post('/student/store',[StudentController::class,'store'])->name('student.store');
+    Route::post('/form/store',[FormController::class,'store'])->name('form.store');
 });

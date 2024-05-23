@@ -19,7 +19,7 @@ return [
     'askerlik_belgesi' => 'Askerlik Belgesi',
     'kimlik_belgesi' => 'Kimlik Belgesi',
     'seciniz' => 'Seçiniz',
-    'aciklama' => 'Lütfen belgelerinizi " docx,pdf,jpg,png,doc " formatında yükleyiniz. Hata almanız durumunda belgeleri tekrar yüklemelisiniz.',
+    'aciklama' => 'Lütfen belgelerinizi "pdf" formatında yükleyiniz. Hata almanız durumunda belgeleri tekrar yüklemelisiniz.',
 
     'sehir' => 'Şehir',
     'ilce' => 'İlçe',
