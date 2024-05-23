@@ -33,7 +33,7 @@ export {
 import { deprecate } from '../utils/deprecate';
 import { hooks } from '../utils/hooks';
 
-hooks.lang = deprecate('moment.lang is deprecated. Use moment.locale instead.', getSetGlobalLocale);
+hooks.lang = deprecate('moment._lang is deprecated. Use moment.locale instead.', getSetGlobalLocale);
 hooks.langData = deprecate('moment.langData is deprecated. Use moment.localeData instead.', getLocale);
 
 import './en';

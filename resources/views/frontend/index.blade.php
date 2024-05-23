@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('student.store')}}" class="application_form" id="application_form" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('student.store',['locale' => app()->getLocale()])}}" class="application_form" id="application_form" method="POST" enctype="multipart/form-data">
                     @csrf
                         <div class="row gy-1">
                             <div class="col-lg-12">

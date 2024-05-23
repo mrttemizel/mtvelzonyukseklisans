@@ -29,7 +29,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
 
-        /*$request->validate([
+        $request->validate([
 
             'bolum_id' => 'required',
             'KVKK' => 'required',
@@ -59,9 +59,7 @@ class StudentController extends Controller
             'ales_certificate' => 'required_with:ales|file|mimes:pdf,jpg,png,docx,doc|max:2048',
             'yds_certificate' => 'required_with:yds|file|mimes:pdf,jpg,png,docx,doc|max:2048',
 
-
-
-        ]);*/
+        ]);
 
 
         dd($request->all());

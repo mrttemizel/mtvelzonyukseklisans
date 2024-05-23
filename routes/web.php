@@ -7,19 +7,6 @@ use App\Http\Controllers\frontend\student\StudentController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-
-
 
 Route::get('/', function () {
     $locale = mb_substr(request()->header('Accept-Language'), 0, 2);
@@ -31,13 +18,9 @@ Route::get('/', function () {
     return redirect()->route('student.index', ['locale' => $locale]);
 });
 
-Route::prefix('{locale}')->group(function () {
-    Route::get('/',[StudentController::class,'index'])->name('student.index');
-});
 
 
 
-Route::post('/student/store',[StudentController::class,'store'])->name('student.store');
 
 Route::get('/login',[AuthController::class,'login'])->name('auth.login');
 Route::post('/login-submit',[AuthController::class,'login_submit'])->name('auth.login-submit');
@@ -66,10 +49,15 @@ Route::middleware('auth')->group(function (){
         Route::post('/user/information-update',[UserController::class,'information_update'])->name('users.information.update');
         Route::post('/user/password-update',[UserController::class,'password_update'])->name('users.password.update');
 
-
         Route::get('/settings/index',[SettingsController::class,'index'])->name('settings.index');
         Route::post('/settings/update',[SettingsController::class,'update'])->name('settings.update');
 
 
     });
+});
+
+
+Route::prefix('{locale}')->middleware(['setLocale'])->group(function () {
+    Route::get('/',[StudentController::class,'index'])->name('student.index');
+    Route::post('/student/store',[StudentController::class,'store'])->name('student.store');
 });

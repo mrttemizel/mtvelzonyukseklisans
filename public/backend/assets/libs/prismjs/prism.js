@@ -181,7 +181,7 @@ var Prism = (function (_self) {
 			},
 
 			/**
-			 * Returns the Prism language of the given element set by a `language-xxxx` or `lang-xxxx` class.
+			 * Returns the Prism language of the given element set by a `language-xxxx` or `_lang-xxxx` class.
 			 *
 			 * If no language is set for the element or the element is `null` or `undefined`, `none` will be returned.
 			 *
@@ -522,7 +522,7 @@ var Prism = (function (_self) {
 			var env = {
 				callback: callback,
 				container: container,
-				selector: 'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'
+				selector: 'code[class*="language-"], [class*="language-"] code, code[class*="_lang-"], [class*="_lang-"] code'
 			};
 
 			_.hooks.run('before-highlightall', env);
