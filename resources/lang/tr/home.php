@@ -21,5 +21,30 @@ return [
     'seciniz' => 'Seçiniz',
     'aciklama' => 'Lütfen belgelerinizi " docx,pdf,jpg,png,doc " formatında yükleyiniz. Hata almanız durumunda belgeleri tekrar yüklemelisiniz.',
 
+    'sehir' => 'Şehir',
+    'ilce' => 'İlçe',
+    'phone' => 'Cep Telefonu',
+    'email' => 'E-Posta',
+    'adres' => 'Adres',
+
+    'lisans_mezuniyet' => 'LİSANS MEZUNİYET BİLGİSİ',
+    'universite' => 'Üniversite',
+    'fakulte' => 'Fakülte',
+    'bolum' => 'Bölüm',
+    'mezuniyet_ortalamasi' => 'Mezuniyet Ortalaması',
+    'baslangic_tarihi' => 'Başlangıç Tarihi',
+    'bitis_tarihi' => 'Bitiş Tarihi',
+    'diploma' => 'Diploma',
+    'transcript' => 'Transcript',
+
+    'sinav_sonuclari' => 'SINAV SONUÇLARI',
+    'ales' => 'Ales',
+    'ales_belgesi' => 'Ales Belgesi',
+    'yds' => 'Yds',
+    'yds_belgesi' => 'Yds Belgesi',
+
+    'puan' => 'Puan girmeniz durumunda belge yüklemeniz gerekmektedir.',
+     'kvkk' =>  'Kişisel verilerimin metinde belirtilen şekillerde işlenmesini onaylıyorum ve izin veriyorum.',
+    'submit' => 'Başvuru Yap'
 
 ];

@@ -20,4 +20,32 @@ return [
     'kimlik_belgesi' => 'Identification',
     'seciniz' => 'Choose',
     'aciklama' => 'Please upload your documents in "docx, pdf, jpg, png, doc" format. If you receive an error, you must upload the documents again.',
-];
+
+    'sehir' => 'City',
+    'ilce' => 'Town',
+    'phone' => 'Phone',
+    'email' => 'Email',
+    'adres' => 'Adress',
+
+    'lisans_mezuniyet' => 'UNDERGRADUATE GRADUATION INFORMATION',
+    'universite' => 'University',
+    'fakulte' => 'Faculty',
+    'bolum' => 'Section',
+    'mezuniyet_ortalamasi' => 'Graduation Average',
+    'baslangic_tarihi' => 'Starting Date',
+    'bitis_tarihi' => 'End Date',
+    'diploma' => 'Graduation Document',
+    'transcript' => 'Transcript',
+
+    'sinav_sonuclari' => 'RESULTS OF EXAM',
+    'ales' => 'Ales',
+    'ales_belgesi' => 'Ales Document',
+    'yds' => 'Yds',
+    'yds_belgesi' => 'Yds Document',
+
+    'puan' => 'If you enter points, you must upload documents.',
+    'kvkk' => 'I confirm and allow my personal data to be processed in the ways specified in the text.',
+    'submit' => 'Submit'
+
+
+    ];

@@ -175,7 +175,7 @@
                                         {{ $message }}
                                         @enderror
                                         </span>
-                                        <input type="file" class="form-control" id="labelInput" name="military_service_certificate">
+                                        <input type="file" class="form-control" id="labelInput" name="military_service_certificate" accept="application/pdf,image/jpeg,image/png">
                                         <span class="text-info">@lang('home.aciklama')</span><br>
                                         <span class="text-danger">
 
@@ -193,7 +193,7 @@
                                             {{ $message }}
                                             @enderror
                             </span>
-                                        <input type="file" class="form-control" id="labelInput" name="identity" value="{{ old('identity') }}" >
+                                        <input type="file" class="form-control" id="labelInput" name="identity" value="{{ old('identity') }}" accept="application/pdf,image/jpeg,image/png">
                                         <span class="text-info">@lang('home.aciklama')</span><br>
 
                                     </div>
@@ -201,12 +201,12 @@
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <h6 style="color: #01AAC8"><b>İLETİŞİM BİLGİLER</b></h6>
+                            <h6 style="color: #01AAC8"><b>@lang('home.iletisim_bilgiler')</b></h6>
                             <div class="col-lg-6">
 
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Şehir</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.sehir')</label>
                                         <span class="text-danger">
                                     @error('city')
                                             {{ $message }}
@@ -218,7 +218,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div>
-                                    <label for="labelInput" class="form-label"><span class="text-danger">*</span> İlçe</label>
+                                    <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.ilce')</label>
                                     <span class="text-danger">
                                     @error('town')
                                         {{ $message }}
@@ -233,7 +233,7 @@
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Cep Telefonu</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.phone')</label>
                                         <span class="text-danger">
                                     @error('phone_nummber')
                                             {{ $message }}
@@ -245,7 +245,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div>
-                                    <label for="labelInput" class="form-label"><span class="text-danger">*</span> E-Posta</label>
+                                    <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.email')</label>
                                     <span class="text-danger">
                                     @error('email')
                                         {{ $message }}
@@ -260,7 +260,7 @@
                             <div class="col-lg-12">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Adres</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.adres')</label>
                                         <span class="text-danger">
                                     @error('address')
                                             {{ $message }}
@@ -272,12 +272,12 @@
                             </div>
                         </div>
                         <div class="row mt-4">
-                            <h6 style="color: #01AAC8"><b>LİSANS MEZUNİYET BİLGİSİ</b></h6>
+                            <h6 style="color: #01AAC8"><b>@lang('home.lisans_mezuniyet')</b></h6>
 
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Üniversite</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.universite')</label>
                                         <span class="text-danger">
                                     @error('university')
                                             {{ $message }}
@@ -290,7 +290,7 @@
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Fakülte</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.fakulte')</label>
                                         <span class="text-danger">
                                     @error('faculty')
                                             {{ $message }}
@@ -306,7 +306,7 @@
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Bölüm</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.bolum')</label>
                                         <span class="text-danger">
                                     @error('section')
                                             {{ $message }}
@@ -319,7 +319,7 @@
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Mezuniyet Ortalaması</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.mezuniyet_ortalamasi')</label>
                                         <span class="text-danger">
                                     @error('graduation_score')
                                             {{ $message }}
@@ -334,7 +334,7 @@
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Başlangıç Tarihi</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.baslangic_tarihi')</label>
                                         <span class="text-danger">
                                     @error('starting_date')
                                             {{ $message }}
@@ -347,7 +347,7 @@
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Bitiş Tarihi</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.bitis_tarihi')</label>
                                         <span class="text-danger">
                                     @error('end_date')
                                             {{ $message }}
@@ -362,28 +362,28 @@
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Diploma</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.diploma')</label>
                                         <span class="text-danger">
                                     @error('certificate')
                                             {{ $message }}
                                             @enderror
                             </span>
-                                        <input type="file" class="form-control" id="labelInput" name="certificate">
-                                        <span class="text-info">Lütfen belgelerinizi <b>" docx,pdf,jpg,png,doc "</b> formatında yükleyiniz. Hata almanız durumunda belgeleri tekrar yüklemelisiniz.</span>
+                                        <input type="file" class="form-control" id="labelInput" name="certificate" accept="application/pdf,image/jpeg,image/png">
+                                        <span class="text-info">@lang('home.aciklama')</span><br>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> Transcript</label>
+                                        <label for="labelInput" class="form-label"><span class="text-danger">*</span> @lang('home.transcript')</label>
                                         <span class="text-danger">
                                     @error('transcript')
                                             {{ $message }}
                                             @enderror
                             </span>
-                                        <input type="file" class="form-control" id="labelInput" name="transcript">
-                                        <span class="text-info">Lütfen belgelerinizi <b>" docx,pdf,jpg,png,doc "</b> formatında yükleyiniz. Hata almanız durumunda belgeleri tekrar yüklemelisiniz.</span>
+                                        <input type="file" class="form-control" id="labelInput" name="transcript" accept="application/pdf,image/jpeg,image/png">
+                                        <span class="text-info">@lang('home.aciklama')</span><br>
                                     </div>
                                 </div>
                             </div>
@@ -394,14 +394,14 @@
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label">ALES</label>
+                                        <label for="labelInput" class="form-label">@lang('home.ales')</label>
                                         <span class="text-danger">
                                     @error('ales')
                                             {{ $message }}
                                             @enderror
                             </span>
                                         <input type="text" name="ales" class="form-control" id="ales_puani" placeholder="0-100" value="{{old('ales')}}">
-                                        <span class="text-info">Puan girmeniz durumunda belge yüklemeniz gerekmektedir.</span>
+                                        <span class="text-info">@lang('home.puan')</span>
 
 
                                     </div>
@@ -410,14 +410,14 @@
                             <div class="col-lg-6">
                                 <div>
                                     <div id="alesBelgesi">
-                                        <label for="labelInput" class="form-label">ALES Belgesi</label>
+                                        <label for="labelInput" class="form-label">@lang('home.ales_belgesi')</label>
                                         <span class="text-danger">
                                     @error('ales_certificate')
                                             {{ $message }}
                                             @enderror
                             </span>
-                                        <input type="file" class="form-control"  name="ales_certificate" id="labelInput"  >
-                                        <span class="text-info">Lütfen belgelerinizi <b>" docx,pdf,jpg,png,doc "</b> formatında yükleyiniz. Hata almanız durumunda belgeleri tekrar yüklemelisiniz.</span>
+                                        <input type="file" class="form-control"  name="ales_certificate" id="labelInput"  accept="application/pdf,image/jpeg,image/png">
+                                        <span class="text-info">@lang('home.aciklama')</span><br>
                                     </div>
                                 </div>
                             </div>
@@ -427,10 +427,10 @@
                             <div class="col-lg-6">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label">YDS</label>
+                                        <label for="labelInput" class="form-label">@lang('home.yds')</label>
 
                                         <input type="text" name="yds"  class="form-control" id="yds_puani" placeholder="0-100" value="{{old('yds')}}">
-                                        <span class="text-info">Puan girmeniz durumunda belge yüklemeniz gerekmektedir.</span>
+                                        <span class="text-info">@lang('home.puan')</span>
 
                                     </div>
                                 </div>
@@ -438,14 +438,14 @@
                             <div class="col-lg-6"  id="ydsBelge">
                                 <div>
                                     <div>
-                                        <label for="labelInput" class="form-label">Yabancı Dil Belgesi</label>
+                                        <label for="labelInput" class="form-label">@lang('home.yds_belgesi')</label>
                                         <span class="text-danger">
                                     @error('yds_certificate')
                                             {{ $message }}
                                             @enderror
                             </span>
-                                        <input type="file" class="form-control" name="yds_certificate" id="labelInput">
-                                        <span class="text-info">Lütfen belgelerinizi <b>" docx,pdf,jpg,png,doc "</b> formatında yükleyiniz. Hata almanız durumunda belgeleri tekrar yüklemelisiniz.</span>
+                                        <input type="file" class="form-control" name="yds_certificate" id="labelInput" accept="application/pdf,image/jpeg,image/png">
+                                        <span class="text-info">@lang('home.aciklama')</span><br>
                                     </div>
                                 </div>
                             </div>
@@ -457,7 +457,7 @@
                                         <input class="form-check-input" type="checkbox" name="KVKK" id="formCheck1">
 
                                         <label class="form-check-label" for="formCheck1">
-                                            <a href="https://antalya.edu.tr/tr/kvkk-aydinlatma-metni" target="_blank"><span class="text-danger">* </span> Kişisel verilerimin metinde belirtilen şekillerde işlenmesini onaylıyorum ve izin veriyorum.</a>
+                                            <a href="https://antalya.edu.tr/tr/kvkk-aydinlatma-metni" target="_blank"><span class="text-danger">* </span> @lang('home.kvkk')</a>
                                         </label>
                                     </div>
                                     <span class="text-danger">
@@ -470,7 +470,7 @@
 
                         </div>
 
-                        <button type="submit" class="btn btn-primary mt-3">Başvuru Yap</button>
+                        <button type="submit" class="btn btn-primary mt-3">@lang('home.submit')</button>
                     </form>
 
 
