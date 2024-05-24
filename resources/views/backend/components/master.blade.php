@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>@yield('title')| ABU - Yönetim Sistemleri</title>
+    <title>@yield('title') | ABU - Yönetim Sistemleri</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Mpanel - Yönetim Sistemleri" name="description" />
     <meta content="murattemizel" name="author" />
@@ -32,11 +32,8 @@
 
         </div>
 
-
       @include('backend.components._partials._footer')
     </div>
-
-
 </div>
 
 
@@ -47,5 +44,4 @@
 @include('backend.components._partials._vendor-scripts')
 
 </body>
-
 </html>

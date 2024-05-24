@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\backend\form;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NewApplicationMail;
+use App\Mail\ReceivedApplicationMail;
 use App\Models\Student;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Mail;
 
 class FormController extends Controller
 {
@@ -28,9 +31,7 @@ class FormController extends Controller
 
     public  function  store(Request $request)
     {
-
         $request->validate([
-
             'bolum_id' => 'required',
             'KVKK' => 'required',
             'name' => 'required',
@@ -59,7 +60,6 @@ class FormController extends Controller
             'transcript' => 'required|file|mimes:pdf|max:2048',
             'ales_certificate' => 'required_with:ales|file|mimes:pdf|max:2048',
             'yds_certificate' => 'required_with:yds|file|mimes:pdf|max:2048',
-
         ]);
 
 
@@ -130,6 +130,13 @@ class FormController extends Controller
         }
 
         $query = $data->save();
+
+        Mail::to($request->input('email'))->queue(new ReceivedApplicationMail(
+            trans('mail.titles.application'),
+            app()->getLocale()
+        ));
+
+        Mail::to('oguz.topcu@antalya.edu.tr')->queue(new NewApplicationMail());
 
         if (!$query) {
             return back()->with($this->NotificationMessage((App()->getLocale()=='tr') ? 'Başvurunuz Hatalı' : 'Application Error','error'));
