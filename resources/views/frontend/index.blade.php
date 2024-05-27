@@ -151,14 +151,14 @@
                             </span>
                                         <div class="form-check mb-2">
                                             <input class="form-check-input"  type="radio" name="gender"
-                                                   value="male"  {{ old('gender')=="male" ? 'checked='.'"'.'checked'.'"' : '' }}>
-                                            <label class="form-check-label">
+                                                   value="male"  {{ old('gender')=="male" ? 'checked='.'"'.'checked'.'"' : '' }} id="male">
+                                            <label class="form-check-label" for="male">
                                                 @lang('home.erkek')
                                             </label>
                                             <br>
                                             <input class="form-check-input"  type="radio" name="gender"
-                                                   value="woman" {{ old('gender')=="woman" ? 'checked='.'"'.'checked'.'"' : '' }}>
-                                            <label class="form-check-label">
+                                                   value="woman" {{ old('gender')=="woman" ? 'checked='.'"'.'checked'.'"' : '' }} id="woman">
+                                            <label class="form-check-label" for="woman">
                                                 @lang('home.kiz')
                                             </label>
                                         </div>
@@ -561,7 +561,7 @@
                     input.addEventListener('change', function() {
 
                         if (this.value === 'male') {
-                            militaryServiceArea.style.display = 'block';
+                            militaryServiceArea.style.display = 'flex';
                         } else {
 
                             militaryServiceArea.style.display = 'none';
