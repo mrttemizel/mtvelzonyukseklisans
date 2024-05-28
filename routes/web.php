@@ -56,9 +56,6 @@ Route::middleware('auth')->group(function (){
         Route::get('/form/index',[FormController::class,'index'])->name('form.index');
 
 
-        Route::get('/download-zip/{id}', [FormController::class, 'downloadZip'])->name('form.download-zip');
-
-
     });
 });
 
