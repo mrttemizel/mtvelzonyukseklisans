@@ -27,6 +27,13 @@ class UserSeeder extends Seeder
                 'email' => 'oguz.topcu@antalya.edu.tr',
                 'password' => bcrypt('admin*!!'),
                 'status' => 2,
+            ],
+            [
+                'role' => User::ROLE_USER,
+                'name' => 'Enstitü',
+                'email' => 'lisanustuadmin@antalya.edu.tr',
+                'password' => '$2y$10$AOClkj6hL0p..zy/KdWe9eN71KWdQqZuoVXkuwt4Y2hS4dQ9t9bWK',
+                'status' => 0,
             ]
         ];
 
