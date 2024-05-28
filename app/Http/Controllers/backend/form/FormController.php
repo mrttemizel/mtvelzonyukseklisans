@@ -10,6 +10,10 @@ use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
+use ZipArchive;
+use File;
+
 
 class FormController extends Controller
 {
@@ -91,41 +95,42 @@ class FormController extends Controller
         if($request->hasFile('military_service_certificate')) {
             $military_service_certificate = $request->file('military_service_certificate');
             $military_service_certificate_name = $request->input('name') . '-' . 'askerlik' . '-' . time() . '-' . uniqid() . '.' . $military_service_certificate->getClientOriginalExtension();
-            $military_service_certificate->move('form/', $military_service_certificate_name);
+            $military_service_certificate->move(public_path('form'), $military_service_certificate_name);
             $data->military_service_certificate = $military_service_certificate_name;
         }
 
         if($request->hasFile('identity')) {
             $identity = $request->file('identity');
             $identity_name = $request->input('name') . '-' . 'Kimlik' . '-' . time() . '-' . uniqid() . '.' . $identity->getClientOriginalExtension();
-            $identity->move('form/', $identity_name);
+            $identity->move(public_path('form'), $identity_name);
             $data->identity = $identity_name;
         }
+
         if($request->hasFile('certificate')) {
             $certificate = $request->file('certificate');
-            $certificate_name = $request->input('name') . '-' . 'Diploma' . '-' . time() . '-' . uniqid() . '.' . $identity->getClientOriginalExtension();
-            $certificate->move('form/', $certificate);
+            $certificate_name = $request->input('name') . '-' . 'Diploma' . '-' . time() . '-' . uniqid() . '.' . $certificate->getClientOriginalExtension();
+            $certificate->move(public_path('form'), $certificate_name);
             $data->certificate = $certificate_name;
         }
 
         if($request->hasFile('transcript')) {
             $transcript = $request->file('transcript');
             $transcript_name = $request->input('name') . '-' . 'Transcript' . '-' . time() . '-' . uniqid() . '.' . $transcript->getClientOriginalExtension();
-            $transcript->move('form/', $transcript);
+            $transcript->move(public_path('form'), $transcript_name);
             $data->transcript = $transcript_name;
         }
 
         if($request->hasFile('ales_certificate')) {
             $ales_certificate = $request->file('ales_certificate');
             $ales_certificate_name = $request->input('name') . '-' . 'Ales' . '-' . time() . '-' . uniqid() . '.' . $ales_certificate->getClientOriginalExtension();
-            $ales_certificate->move('form/', $ales_certificate);
+            $ales_certificate->move(public_path('form'), $ales_certificate_name);
             $data->ales_certificate = $ales_certificate_name;
         }
 
         if($request->hasFile('yds_certificate')) {
             $yds_certificate = $request->file('yds_certificate');
-            $yds_certificate_name = $request->input('name') . '-' . 'Ales' . '-' . time() . '-' . uniqid() . '.' . $yds_certificate->getClientOriginalExtension();
-            $yds_certificate->move('form/', $yds_certificate);
+            $yds_certificate_name = $request->input('name') . '-' . 'Yds' . '-' . time() . '-' . uniqid() . '.' . $yds_certificate->getClientOriginalExtension();
+            $yds_certificate->move(public_path('form'), $yds_certificate_name);
             $data->yds_certificate = $yds_certificate_name;
         }
 
@@ -144,6 +149,45 @@ class FormController extends Controller
         } else {
             return redirect()->route('student.index',['locale' => app()->getLocale()])->with($this->NotificationMessage((App()->getLocale()=='tr') ? 'Başvurunuz Başarılı Bir Şekilde Alındı' : 'Application Successful','success'));
         }
+    }
+
+    public  function downloadZip($id)
+    {
+
+        $data = Student::find($id);
+
+        $files = [
+            public_path('form/' . $data->ales_certificate),
+            public_path('form/' . $data->yds_certificate),
+            public_path('form/' . $data->transcript),
+            public_path('form/' . $data->certificate),
+            public_path('form/' . $data->identity),
+            public_path('form/' . $data->military_service_certificate),
+        ];
+
+        $zipFileName = $data->name.'.zip';
+        $zipFilePath = public_path('form/' . $zipFileName);
+
+        $zip =new ZipArchive();
+
+        if ($zip->open($zipFilePath, ZipArchive::CREATE | ZipArchive::OVERWRITE) !== true) {
+            return response()->json(['error' => 'Zip dosyası oluşturulamadı'], 500);
+        }
+
+
+        foreach ($files as $file) {
+            if (file_exists($file)) {
+                $zip->addFile($file, basename($file));
+            } else {
+                return response()->json(['error' => 'Dosya bulunamadı: ' . $file], 404);
+            }
+        }
+
+        $zip->close();
+        return response()->download($zipFilePath)->deleteFileAfterSend(true);
+
+
+
     }
 }
 

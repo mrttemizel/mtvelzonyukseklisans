@@ -5,10 +5,9 @@ use App\Http\Controllers\backend\form\FormController;
 use App\Http\Controllers\backend\user\UserController;
 use App\Http\Controllers\frontend\settings\SettingsController;
 use App\Http\Controllers\frontend\student\StudentController;
-use App\Mail\ReceivedApplicationMail;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
+
 
 Route::get('/', function () {
     $locale = mb_substr(request()->header('Accept-Language'), 0, 2);
@@ -51,6 +50,11 @@ Route::middleware('auth')->group(function (){
         Route::post('/settings/update',[SettingsController::class,'update'])->name('settings.update');
 
         Route::get('/form/index',[FormController::class,'index'])->name('form.index');
+
+
+        Route::get('/download-zip/{id}', [FormController::class, 'downloadZip'])->name('form.download-zip');
+
+
     });
 });
 
