@@ -5,4 +5,23 @@
         @slot('li_1') Admin @endslot
         @slot('title') Dashboard  @endslot
     @endcomponent
+
+    <div class="p-3 bg-white rounded shadow">
+        {!! $chart->container() !!}
+    </div>
 @endsection
+
+
+
+
+@section('addjs')
+
+
+
+    <script src="{{ $chart->cdn() }}"></script>
+
+    {{ $chart->script() }}
+@endsection
+
+
+

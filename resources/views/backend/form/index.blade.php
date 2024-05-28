@@ -3,12 +3,12 @@
     Applications
 @endsection
 @section('css')
-    <link href="{{asset('backend/assets/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('backend/assets/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css"/>
 
     <!--datatable css-->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css"/>
     <!--datatable responsive css-->
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css"/>
 
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
 
@@ -48,26 +48,45 @@
                             <h5 class="card-title mb-0"> Başvurular</h5>
                         </div>
                         <div class="card-body">
-                            <table id="alternative-pagination" class="table nowrap dt-responsive align-middle table-hover table-bordered" style="width:100%">
+                            <table id="alternative-pagination"
+                                   class="table nowrap dt-responsive align-middle table-hover table-bordered"
+                                   style="width:100%">
                                 <thead>
                                 <tr>
                                     <th>Number</th>
+                                    <th>İsim Soyisim</th>
+                                    <th>Ülke</th>
+                                    <th>Bölüm Adı</th>
+                                    <th>Ales</th>
+                                    <th>Yds</th>
+                                    <th>Başvuru Tarihi</th>
                                     <th>Edit</th>
                                 </tr>
                                 </thead>
                                 <tbody
                                 @php $i = 0 @endphp
                                 @foreach($data as $datas)
-                                    @php $i++ @endphp
                                     <tr>
+                                        @php $i++ @endphp
                                         <td>{{$i}}</td>
+                                        <td>{{$datas->name}}</td>
+                                        <td>{{$datas -> country}}</td>
+                                        <td>{{$datas -> getBolum -> bolumler}}</td>
+                                        <td>{{ $datas -> ales  }}</td>
+                                        <td>{{ $datas -> yds  }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($datas -> created_at)->format('d/m/Y')  }}</td>
+
+
                                         <td>
                                             <div class="hstack gap-3 fs-15">
-                                                <a href="javascript:void(0)" class="btn btn-success btn-sm"  data-bs-toggle="modal" data-bs-target="#formDetailsModal" id="show_form_details" data-id={{ $datas->id }}><i class=" ri-eye-fill"></i></a>
+                                                <a href="javascript:void(0)" class="btn btn-success btn-sm"
+                                                   data-bs-toggle="modal" data-bs-target="#formDetailsModal"
+                                                   id="show_form_details" data-id={{ $datas->id }}><i
+                                                        class=" ri-eye-fill"></i></a>
                                             </div>
                                         </td>
+                                        </td>
                                     </tr>
-
                                     @endforeach
                                     </tbody>
                             </table>
