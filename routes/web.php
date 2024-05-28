@@ -37,14 +37,16 @@ Route::middleware('auth')->group(function (){
         Route::post('/profile/profile-information-update',[UserController::class,'profile_information_update'])->name('users.profile.information.update');
         Route::post('/profile/profile-password-update',[UserController::class,'profile_password_update'])->name('users.profile.password.update');
 
-        Route::get('/users/create',[UserController::class,'create'])->name('users.create');
-        Route::post('/users/store',[UserController::class,'store'])->name('users.store');
-        Route::get('/users/index',[UserController::class,'index'])->name('users.index');
-        Route::get('/users/delete/{id}',[UserController::class,'delete'])->name('users.delete');
-        Route::get('/users/edit/{id}',[UserController::class,'edit'])->name('users.edit');
-        Route::post('/user/image-update',[UserController::class,'image_update'])->name('users.image.update');
-        Route::post('/user/information-update',[UserController::class,'information_update'])->name('users.information.update');
-        Route::post('/user/password-update',[UserController::class,'password_update'])->name('users.password.update');
+        Route::middleware(['role:' . \App\Models\User::ROLE_SUPER_ADMIN])->group(function () {
+            Route::get('/users/create',[UserController::class,'create'])->name('users.create');
+            Route::post('/users/store',[UserController::class,'store'])->name('users.store');
+            Route::get('/users/index',[UserController::class,'index'])->name('users.index');
+            Route::get('/users/delete/{id}',[UserController::class,'delete'])->name('users.delete');
+            Route::get('/users/edit/{id}',[UserController::class,'edit'])->name('users.edit');
+            Route::post('/user/image-update',[UserController::class,'image_update'])->name('users.image.update');
+            Route::post('/user/information-update',[UserController::class,'information_update'])->name('users.information.update');
+            Route::post('/user/password-update',[UserController::class,'password_update'])->name('users.password.update');
+        });
 
         Route::get('/settings/index',[SettingsController::class,'index'])->name('settings.index');
         Route::post('/settings/update',[SettingsController::class,'update'])->name('settings.update');

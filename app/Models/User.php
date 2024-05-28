@@ -12,6 +12,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    const ROLE_SUPER_ADMIN = 'super.admin';
+
     const ROLE_ADMIN = 'admin';
 
     const ROLE_USER = 'user';
@@ -41,6 +43,11 @@ class User extends Authenticatable
     public function isSameRole(string $role): bool
     {
         return $this->role == $role;
+    }
+
+    public function isSuperAdmin(): bool
+    {
+        return $this->role == self::ROLE_SUPER_ADMIN;
     }
 
     public function isAdmin(): bool

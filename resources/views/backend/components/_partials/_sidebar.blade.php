@@ -26,22 +26,24 @@
                 <li class="nav-item">
                     <a href="{{route('auth.index')}}" class="nav-link" data-key="t-analytics">  <i class=" ri-home-4-line"></i>Dashboard </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                        <i class="ri-shield-user-line"></i> <span data-key="t-dashboards">Kullanıcılar</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarDashboards">
-                        <ul class="nav nav-sm flex-column">
+                @if (auth()->user()->isSuperAdmin())
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                            <i class="ri-shield-user-line"></i> <span data-key="t-dashboards">Kullanıcılar</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="sidebarDashboards">
+                            <ul class="nav nav-sm flex-column">
 
-                            <li class="nav-item">
-                                <a href="{{route('users.create')}}" class="nav-link"><span data-key="t-job">Yeni Kullanıcı</span> <span class="badge badge-pill bg-success" data-key="t-new">+</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('users.index')}}" class="nav-link" data-key="t-analytics"> Kullanıcıları Listele </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li> <!-- end Dashboard Menu -->
+                                <li class="nav-item">
+                                    <a href="{{route('users.create')}}" class="nav-link"><span data-key="t-job">Yeni Kullanıcı</span> <span class="badge badge-pill bg-success" data-key="t-new">+</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('users.index')}}" class="nav-link" data-key="t-analytics"> Kullanıcıları Listele </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <a href="{{route('form.index')}}" class="nav-link" data-key="t-analytics">  <i class="  ri-table-alt-line"></i>Başvurular </a>
                 </li>
