@@ -48,6 +48,7 @@ class UserController extends Controller
         $data->phone = $request->input('phone');
         $data->status = $request->status;
         $data->password = Hash::make($request->input('password'));
+        $data->role = User::ROLE_ADMIN;
 
 
         $query = $data->save();
