@@ -52,6 +52,7 @@ Route::middleware('auth')->group(function (){
         Route::post('/settings/update',[SettingsController::class,'update'])->name('settings.update');
 
         Route::get('/form/index',[FormController::class,'index'])->name('form.index');
+        Route::get('/form/see/{id}',[FormController::class,'see'])->name('form.see');
 
 
         Route::get('/download-zip/{id}', [FormController::class, 'downloadZip'])->name('form.download-zip');

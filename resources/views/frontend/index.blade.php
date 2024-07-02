@@ -14,8 +14,10 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="card-title mb-0">@lang('home.header')</h4>
+
                         <div class="btn-group">
-                            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
+                            <a href="https://application.antalya.edu.tr/" target="_blank" class="btn btn-danger btn-sm d-flex justify-content-center align-items-center">Foreign Student Application</a>
+                            <button type="button" class="btn btn-info dropdown-toggle ms-2" data-bs-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">Language
                             </button>
                             <div class="dropdown-menu">
@@ -528,7 +530,7 @@
 
                             </div>
 
-                            <button type="submit" class="btn btn-primary mt-3">@lang('home.submit')</button>
+                            <button type="submit" id="submit_button" class="btn btn-primary mt-3">@lang('home.submit')</button>
                         </form>
 
 
@@ -615,5 +617,12 @@
 
         });
 
+    </script>
+
+    <script>
+        $(document).on('click', '#submit_button', function () {
+            $('#submit_button').html('............');
+            $('#submit_button').addClass("disabled");
+        });
     </script>
 @endsection

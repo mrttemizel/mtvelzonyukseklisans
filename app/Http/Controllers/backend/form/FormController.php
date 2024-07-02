@@ -11,7 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
-use ZipArchive;
+use Illuminate\Support\Str;
+use \ZipArchive;
 use File;
 
 
@@ -151,43 +152,95 @@ class FormController extends Controller
         }
     }
 
-    public  function downloadZip($id)
+    public function see($id)
     {
 
-        $data = Student::find($id);
+        $student = Student::where('id', $id)->first();
 
-        $files = [
-            public_path('form/' . $data->ales_certificate),
-            public_path('form/' . $data->yds_certificate),
-            public_path('form/' . $data->transcript),
-            public_path('form/' . $data->certificate),
-            public_path('form/' . $data->identity),
-            public_path('form/' . $data->military_service_certificate),
-        ];
+        if (!$student) {
 
-        $zipFileName = $data->name.'.zip';
-        $zipFilePath = public_path('form/' . $zipFileName);
-
-        $zip =new ZipArchive();
-
-        if ($zip->open($zipFilePath, ZipArchive::CREATE | ZipArchive::OVERWRITE) !== true) {
-            return response()->json(['error' => 'Zip dosyası oluşturulamadı'], 500);
+            abort(404, 'Öğrenci bulunamadı.');
         }
 
 
-        foreach ($files as $file) {
-            if (file_exists($file)) {
-                $zip->addFile($file, basename($file));
-            } else {
-                return response()->json(['error' => 'Dosya bulunamadı: ' . $file], 404);
-            }
-        }
-
-        $zip->close();
-        return response()->download($zipFilePath)->deleteFileAfterSend(true);
-
-
-
+        return view('backend.form.see', [
+            'datas' => $student,
+        ]);
     }
+
+
+
+
+    public function downloadZip($id)
+    {
+        try {
+            // Öğrenci verisini bul
+            $data = Student::find($id);
+
+            if (!$data) {
+                return response()->json(['error' => 'Öğrenci bulunamadı'], 404);
+            }
+
+            // Dosya yollarını belirle
+            $files = [
+                $data->ales_certificate ? public_path('form/' . $data->ales_certificate) : null,
+                $data->yds_certificate ? public_path('form/' . $data->yds_certificate) : null,
+                $data->transcript ? public_path('form/' . $data->transcript) : null,
+                $data->certificate ? public_path('form/' . $data->certificate) : null,
+                $data->identity ? public_path('form/' . $data->identity) : null,
+                $data->military_service_certificate ? public_path('form/' . $data->military_service_certificate) : null,
+            ];
+
+            // Geçici dizin oluştur ve kontrol et
+            $tempDir = public_path('zip');
+
+
+            if (!is_writable($tempDir)) {
+                return response()->json(['error' => 'Geçici dizine yazma izni yok'], 500);
+            }
+
+
+            // Zip dosya adı ve yolunu belirle
+            $zipFileName = Str::slug($data->name) . '.zip';
+            $zipFilePath = $tempDir . '/' . $zipFileName;
+
+
+
+            // ZipArchive nesnesi oluştur
+            $zip = new ZipArchive();
+
+            if (!$zip->open($zipFilePath, ZipArchive::CREATE | ZipArchive::OVERWRITE)) {
+                return response()->json(['error' => 'Zip dosyası oluşturulamadı'], 500);
+            }
+
+
+            // Dosyaları zip dosyasına ekle
+            foreach ($files as $file) {
+                if (file_exists($file) && filesize($file) > 0) {
+                    $zip->addFile($file, basename($file));
+                } else {
+                    // Handle case where file is missing or empty
+                    \Log::warning('Eksik veya boş dosya: ' . $file);
+                }
+            }
+
+
+            // Zip dosyasını kapat
+            if (!$zip->close()) {
+                return response()->json(['error' => 'Zip dosyası kapatılamadı'], 500);
+            }
+
+            // Zip dosyasını indirme işlemi
+            return response()->download($zipFilePath)->deleteFileAfterSend(true);
+
+        } catch (\Exception $e) {
+            \Log::error('Bir hata oluştu: ' . $e->getMessage());
+            return response()->json(['error' => 'Bir hata oluştu: ' . $e->getMessage()], 500);
+        }
+    }
+
+
+
+
 }
 

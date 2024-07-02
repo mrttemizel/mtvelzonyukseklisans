@@ -79,13 +79,18 @@
 
                                         <td>
                                             <div class="hstack gap-3 fs-15">
-                                                <a href="javascript:void(0)" class="btn btn-success btn-sm"
-                                                   data-bs-toggle="modal" data-bs-target="#formDetailsModal"
-                                                   id="show_form_details" data-id={{ $datas->id }}><i
-                                                        class=" ri-eye-fill"></i></a>
+                                                <a href="{{route('form.see', ['id' => $datas->id])}}" class="link-primary"><i class="ri-eye-2-line"></i></a>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <a href="javascript:void(0)" class="btn btn-success btn-sm"
+                                                       data-bs-toggle="modal" data-bs-target="#formDetailsModal"
+                                                       id="show_form_details" data-id={{ $datas->id }}><i
+                                                            class=" ri-eye-fill"></i></a>
+                                                </div>
+
                                             </div>
                                         </td>
-                                        </td>
+
+
                                     </tr>
                                     @endforeach
                                     </tbody>
